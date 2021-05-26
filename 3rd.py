@@ -11,26 +11,22 @@ class Node:
             res = res + self.inorderTraversal(root.right)
         return res
 
-# problem; checks whole tree
-def check_collision(root1, root2):
-	nodes1 = root1.inorderTraversal(root1)
-	nodes2 = root2.inorderTraversal(root2)
-
-	check = any(node in nodes1 for node in nodes2)
+def check_collision(root):
+	nodes = root.inorderTraversal(root)
+	check = any(nodes.count(node) > 1 for node in nodes)
 	return check
 
-
 if __name__ == '__main__':
-
-	root2 = Node()
-	root1 = Node()
-
+	root = Node()
+	
 	faulty_link = Node()
+	
+	root.left  = Node()
+	root.right = Node()
+	
+	#root.left.right = faulty_link
+	root.left.right = Node()
+	root.right.left = faulty_link
+	
 
-	root1.left = faulty_link
-	root1.right = Node()
-
-	root2.left = faulty_link
-	root2.right = Node()
-
-	print(check_collision(root1, root2))
+	print(check_collision(root))
