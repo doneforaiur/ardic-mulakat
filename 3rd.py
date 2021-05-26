@@ -13,11 +13,9 @@ class Node:
 
 # problem; checks whole tree
 def check_collision(root1, root2):
-		
 	nodes1 = root1.inorderTraversal(root1)
 	nodes2 = root2.inorderTraversal(root2)
 
-	print(len(nodes1), len(nodes2))
 	check = any(node in nodes1 for node in nodes2)
 	return check
 
