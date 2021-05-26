@@ -1,1 +1,0 @@
-# ardic-mulakat
