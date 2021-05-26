@@ -4,23 +4,22 @@ def harmony(input):
 	back_vowels_list  = ["a", "ı", "o", "u"]
 	front_vowels_list = ["e", "i", "ö", "ü"]
 	
-	back_count  = 0
-	front_count = 0
+	back = False
+	front = False
 	
 	for char in input:
 		if char in back_vowels_list:
-			back_count = back_count + 1
+			back = True
 		elif char in front_vowels_list:
-			front_count = front_count + 1
-	
-		if front_count > 0 and back_count > 0:
-			return False
-	return True
+			front = True
+
+	return (back and front)
 	
 	
 if __name__ == '__main__':
-	
+
 	f = open("dict.txt", "r", encoding="utf-8")
-	words = f.readlines()
+	words = f.read().split('\n')
+
 	for word in words:
 		harmony(word)
