@@ -13,7 +13,7 @@ def harmony(input):
 		elif char in front_vowels_list:
 			front = True
 
-	return (back and front)
+	return not (back and front)
 	
 	
 if __name__ == '__main__':
