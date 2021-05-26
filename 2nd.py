@@ -17,7 +17,9 @@ def zeller(day, month, year):
 	# 0: Sunday, 1: Monday, ..., 6: Saturday.
 	day_of_week = year + lyo_4 - lyo_100 + lyo_400 + day_offsets[prev_month_offsets] + day
 	
-	day_of_week = day_of_week % 7 # mod number of days in a week
+	days_in_week = 7
+	
+	day_of_week = day_of_week % days_in_week
 	
 	if day_of_week == 0:
 		if month < 3:
