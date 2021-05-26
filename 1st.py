@@ -1,20 +1,26 @@
 def harmony(input):
-	back_vowels  = ["a", "ı", "o", "u"]
-	front_vowels = ["e", "i", "ö", "ü"]
+	input = input.lower()
 	
-	state = ""
+	back_vowels_list  = ["a", "ı", "o", "u"]
+	front_vowels_list = ["e", "i", "ö", "ü"]
 	
-	for i in range(len(input)):
-		if input[i] in back_vowels and state == "":
-			state = "back"
-		elif input[i] in front_vowels and state == "":
-			state = "front"
-		
-		if ((state == "back") and (input[i] in front_vowels)) or ((state == "front") and (input[i] in back_vowels)):
+	back_count  = 0
+	front_count = 0
+	
+	for char in input:
+		if char in back_vowels_list:
+			back_count = back_count + 1
+		elif char in front_vowels_list:
+			front_count = front_count + 1
+	
+		if front_count > 0 and back_count > 0:
 			return False
 	return True
 	
 	
 if __name__ == '__main__':
-	word = "bilezik"
-	print(harmony(word))
+	
+	f = open("dict.txt", "r", encoding="utf-8")
+	words = f.readlines()
+	for word in words:
+		harmony(word)
