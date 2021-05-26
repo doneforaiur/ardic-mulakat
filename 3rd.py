@@ -24,7 +24,7 @@ def inOrder(root):
 			
 if __name__ == '__main__':
 	root = Node()
-	root.left = Node()
+	root.left = root
 	
 	faulty_link = Node()
 	
