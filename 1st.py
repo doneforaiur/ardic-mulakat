@@ -1,11 +1,12 @@
+# doesn't check for accented vowels
 def harmony(input):
 	input = input.lower()
 	
 	back_vowels_list  = ["a", "ı", "o", "u"]
 	front_vowels_list = ["e", "i", "ö", "ü"]
 	
-	back = False
-	front = False
+	back = None
+	front = None
 	
 	for char in input:
 		if char in back_vowels_list:
@@ -13,7 +14,10 @@ def harmony(input):
 		elif char in front_vowels_list:
 			front = True
 
-	return not (back and front)
+	if back == None and front == None:
+		return False
+	else:
+		return not (back and front)
 	
 	
 if __name__ == '__main__':
@@ -22,4 +26,4 @@ if __name__ == '__main__':
 	words = f.read().split('\n')
 
 	for word in words:
-		harmony(word)
+		print(harmony(word))
