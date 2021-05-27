@@ -29,6 +29,6 @@ def is_sunday(day, month, year):
 		print(day,month, year)
 	
 if __name__ == '__main__':
-	for year in range(1900, 2000):
-		for month in range(1,12):
+	for year in range(1900, 2001):
+		for month in range(1,13):
 			is_sunday(1,month,year)
