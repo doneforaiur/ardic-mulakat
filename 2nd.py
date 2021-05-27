@@ -24,11 +24,12 @@ def is_sunday(day, month, year):
 	day_of_week = day_of_week % days_in_week
 	
 	if day_names[day_of_week] == "Sunday":
-		if month < 3:
-			year += 1
-		print(day,month, year)
+		return True
+	else:
+		return False
 	
 if __name__ == '__main__':
 	for year in range(1900, 2001):
 		for month in range(1,13):
-			is_sunday(1,month,year)
+			if(is_sunday(1, month, year)):
+				print(1, month, year)
