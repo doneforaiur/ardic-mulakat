@@ -1,29 +1,32 @@
-# doesn't check for accented vowels
 def harmony(input):
 	input = input.lower()
 	
 	back_vowels_list  = ["a", "ı", "o", "u"]
 	front_vowels_list = ["e", "i", "ö", "ü"]
-	
-	back = None
-	front = None
 
+	front, back = False, False
+	
 	for char in input:
 		if char in back_vowels_list:
 			back = True
 		elif char in front_vowels_list:
 			front = True
-			
-	if back == None and front == None:
-		return False
-	else:
-		return not (back and front)
-	
-	
+
+		if front and back:
+			break
+
+	# 0 0 = 0
+	# 1 0 = 1
+	# 0 1 = 1
+	# 1 1 = 0
+	return (front ^ back)
+
 if __name__ == '__main__':
 
-	dictionary = open("dict.txt", "r", encoding="utf-8")
-	words = dictionary.read().split('\n')
-
+	#dictionary = open("dict.txt", "r", encoding="utf-8")
+	#words = dictionary.read().split('\n')
+	
+	words = ["TBMM", "İstanbul", "hamsi", "araba"]
 	for word in words:
-		harmony(word)
+		print(harmony(word))
+		#harmony(word)
