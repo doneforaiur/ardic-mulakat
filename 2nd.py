@@ -5,8 +5,9 @@ def is_sunday(day, month, year):
 	if month < 3:
 		year -= 1
 	
-	# remainder of cumulative day difference between
-	# previous months divided by number of weekdays
+	# Formula to calculate the following table;
+	# [int(2.6*month - 0.2) % 7 for month in range(3,15)]
+	# where months are being shifted by 2
 	day_offsets = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
 	
 	# leap year offsets
