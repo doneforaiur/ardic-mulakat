@@ -3,7 +3,7 @@ class Node:
 		self.left = None
 		self.right = None
 
-def inOrder(root):
+def duplicate_detection(root):
 	current = root
 	stack = []
 	nodes = []
@@ -31,4 +31,4 @@ if __name__ == '__main__':
 	root.right = faulty_link
 	root.right.left = faulty_link
 	
-	print(inOrder(root))
+	print(duplicate_detection(root))
