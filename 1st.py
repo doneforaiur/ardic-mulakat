@@ -13,7 +13,7 @@ def harmony(input):
 			front = True
 
 		if front and back:
-			break
+			return False
 
 	# 0 0 = 0
 	# 1 0 = 1
