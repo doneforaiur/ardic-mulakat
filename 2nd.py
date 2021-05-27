@@ -6,8 +6,12 @@ def is_sunday(day, month, year):
 		year -= 1
 	
 	# Formula to calculate the following table;
-	# [int(2.6*month - 0.2) % 7 for month in range(3,15)]
-	# where months are being shifted by 2
+	# Shift months by 2;
+	# [1: March, 2: April, ..., 12: February]
+	# Print month and corresponding number in months' correct order;
+	# [January:11, February: 12, March:1, ..., December: 10]
+	# Months = [11, 12, 1, 2, ..., 10]
+	# day_offsets = [(int(2.6* month - 0.2) % 7 ) for month in Months]
 	day_offsets = [0, 3, 2, 5, 0, 3, 5, 1, 4, 6, 2, 4]
 	
 	# leap year offsets
